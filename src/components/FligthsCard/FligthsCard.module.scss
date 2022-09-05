@@ -1,0 +1,29 @@
+.cartTicket-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.cartTicket-header p {
+    color: #2196f3;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    margin: 0;
+}
+
+.cartTicket-container {
+    background: #fff;
+    border-radius: 5px;
+    font-family: 'Open Sans', sans-serif;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+    display: flex;
+    flex-direction: column;
+    height: 192px;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    padding: 0 20px;
+    width: auto;
+}
