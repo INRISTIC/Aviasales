@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import filtersData from './slices/todoSlice';
+import filtersData from './slices/filtersSlice';
 import ticketData from './slices/cardSlice';
 
 export default configureStore({
