@@ -1,1 +1,1 @@
-https://aviasales-ebon-zeta.vercel.app/
+https://aviasales-inristic.vercel.app/
