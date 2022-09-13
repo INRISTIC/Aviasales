@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux/es/exports';
 
-import { setFilters, setActiveFilters } from '../../store/slices/filtesSlice';
+import { setFilters, setActiveFilters } from '../../store/slices/filtersSlice';
 
 import styles from './FilterTicket.module.scss';
 
