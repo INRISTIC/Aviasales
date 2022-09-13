@@ -1,47 +1,51 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  tickets: [],
-  isLoading: false,
-  isError: 0,
-  isStop: false,
-  count: 5,
-  idx: '',
+  filters: [
+    {
+      name: 'Без пересадок',
+      isChecked: true,
+    },
+    {
+      name: '1 пересадка',
+      isChecked: true,
+    },
+    {
+      name: '2 пересадки',
+      isChecked: true,
+    },
+    {
+      name: '3 пересадки',
+      isChecked: true,
+    },
+  ],
+  isPressBtn: {
+    btnPrice: true,
+    btnFast: false,
+    btnOptimal: false,
+  },
+  active: [],
+  sorting: 'price',
 };
 
-export const fetchTickets = createAsyncThunk('tickets/fetchTickets', async (params) => {
-  const { data } = await axios.get(`https://aviasales-test-api.kata.academy/tickets?searchId=${params}`);
-  return data;
-});
-const ticketData = createSlice({
-  name: 'tickets',
+const filtersData = createSlice({
+  name: 'filters',
   initialState,
   reducers: {
-    setIdx(state, action) {
-      state.idx = action.payload;
+    setFilters(state, action) {
+      state.filters = action.payload;
     },
-    setIsLoading(state) {
-      state.isLoading = false;
+    setActiveFilters(state, action) {
+      state.active = action.payload.filter((el) => el !== null);
     },
-    setCount(state, action) {
-      state.count = action.payload;
+    setIsPressBtn(state, action) {
+      state.isPressBtn = action.payload;
     },
-  },
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchTickets.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(fetchTickets.fulfilled, (state, action) => {
-        state.tickets = [...state.tickets, ...action.payload.tickets];
-        state.isStop = action.payload.stop;
-      })
-      .addCase(fetchTickets.rejected, (state) => {
-        state.isError += 1;
-      });
+    setSorting(state, action) {
+      state.sorting = action.payload;
+    },
   },
 });
 
-export const { setIdx, setIsLoading, setCount } = ticketData.actions;
-export default ticketData.reducer;
+export const { setFilters, setIsPressBtn, setActiveFilters, setSorting } = filtersData.actions;
+export default filtersData.reducer;
