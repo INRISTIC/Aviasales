@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux/es/exports';
 
-import { setIsPressBtn, setSorting } from '../../store/slices/todoSlice';
+import { setIsPressBtn, setSorting } from '../../store/slices/filtersSlice';
 
 import SortingStyle from './sorting.module.scss';
 
